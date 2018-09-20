@@ -111,12 +111,6 @@ ngx_http_lua_ngx_req_raw_header(lua_State *L)
     hc = mr->http_connection;
     c = mr->connection;
 
-#if (NGX_HTTP_V2)
-    if (mr->stream) {
-        return luaL_error(L, "http2 requests not supported yet");
-    }
-#endif
-
 #if 1
     dd("hc->nbusy: %d", (int) hc->nbusy);
 
